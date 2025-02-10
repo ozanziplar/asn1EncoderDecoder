@@ -11,18 +11,6 @@ public class Encoder {
 	private final StringBuffer buff = new StringBuffer();
 
 	protected byte[] encode(byte[] hexInput) {
-		ASN1Sequence seq = new DERSequence(new ASN1Encodable[] {
-					new DERSequence(
-							new ASN1Encodable[] { new ASN1Integer(5), new ASN1Enumerated(1), new ASN1Enumerated(17) }),
-					new DERSequence(new ASN1Encodable[] {}) });
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
-		// PER unaligned kodlama
-		PerEncoding perEncoding = new PerEncoding();
-		baos.write(perEncoding.encode(seq, true).getBytes());
-
-		return baos.toByteArray();
-		
 		byte[] encodedBytes = new byte[0];
 		
 		try {
